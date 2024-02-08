@@ -5,7 +5,7 @@ import time
 import pandas as pd
 
 # NASA Exoplanet URL
-START_URL = "https://en.wikipedia.org/wiki/List_of_brightest_stars"
+START_URL = "https://en.wikipedia.org/w/index.php?title=List_of_brightest_stars_and_other_record_stars&oldid=1187363889"
 
 # Webdriver
 browser = webdriver.Edge("D:\Downloads\PRO-C127\msedgedriver.exe")
@@ -18,7 +18,7 @@ scraped_data = []
 # Define Exoplanet Data Scrapping Method
 def scrape():
     soup=BeautifulSoup(browser.page_source,"html.parser")
-    bright_star_table = soup.find("table",attrs=("class","wikitable"))
+    bright_star_table = soup.find("table",attrs=("class","wikitable sortable jquery-tablesorter"))
     table_body=bright_star_table.find('tbody')
     table_rows=table_body.find_all('tr')
     for row in table_rows:
